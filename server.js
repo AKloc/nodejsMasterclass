@@ -6,6 +6,35 @@ dotenv.config({ path: './config/config.env' });
 
 const app = express();
 
+app.get('/api/v1/bootcamps', (req, res) => {
+    res.status(200).json({ success: true, msg: 'Show all bootcamps' });
+});
+
+app.get('/api/v1/bootcamps/:id', (req, res) => {
+    res.status(200).json({
+        success: true,
+        msg: `Get boootcamp ${req.params.id}`,
+    });
+});
+
+app.post('/api/v1/bootcamps', (req, res) => {
+    res.status(200).json({ success: true, msg: 'Create new bootcamps' });
+});
+
+app.put('/api/v1/bootcamps/:id', (req, res) => {
+    res.status(200).json({
+        success: true,
+        msg: `Edit bootcamp ${req.params.id}`,
+    });
+});
+
+app.delete('/api/v1/bootcamps/:id', (req, res) => {
+    res.status(200).json({
+        success: true,
+        msg: `Delete bootcamp ${req.params.id}`,
+    });
+});
+
 app.get('/', (req, res) => {
     // sending the below as is, express automatically sets the header contenttype to html
     //res.send('<h1>Hello from express</h1>');
